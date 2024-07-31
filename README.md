@@ -51,7 +51,7 @@ The message service implements a simple RESTful API with the following endpoints
    - Ensure your AWS credentials are configured and the necessary permissions are set. 
 
 2. **Deploying the Message Service**:
-   - Go to the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/kubernetes#readme">kubernetes</a> folder.
+   - Go to the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/kubernetes#kubernetes">kubernetes</a> folder.
    - Apply the Kubernetes manifests using `kubectl apply -f <manifest_file>.yaml`.
    - This includes deploying the message service, database, monitoring, and logging configurations.
 
