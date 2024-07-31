@@ -62,14 +62,15 @@ To run the message service locally:
    - Run below command to bring MySql DB.
      ```
      docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=messages -e MYSQL_USER=user -e MYSQL_PASSWORD=password -p 3306:3306 -d mysql:5.7
-     `
+     ```
 3. **Validation and Testing**:
     - Run below commands for creating and searching messages
      ```
      curl -X POST http://127.0.0.1:5000/create -H "Content-Type: application/json" -d '{"account_id": "1234", "sender_number": "123456789564550", "receiver_number": "1234567890"}'
 
      curl "http://127.0.0.1:5000/search?sender_number=123456789564550"
-     `
+     
+     ```
     - Make sure `curl` is installed in your sysytem.
 
 3. **Run the Application**:
