@@ -1,4 +1,4 @@
-## Message Service Project Documentation
+## Message Service Project
 
 ### Overview
 This project involves creating a simple HTTP API service to manage messages, setting up the service in a Kubernetes cluster on AWS using Terraform, and implementing CI/CD pipelines with Jenkins and GitLab. The project is structured into different folders for clear organization and management.
