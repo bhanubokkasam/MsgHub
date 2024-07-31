@@ -69,13 +69,14 @@ To run the message service locally:
      curl -X POST http://127.0.0.1:5000/create -H "Content-Type: application/json" -d '{"account_id": "1234", "sender_number": "123456789564550", "receiver_number": "1234567890"}'
 
      curl "http://127.0.0.1:5000/search?sender_number=123456789564550"
-     
+
      ```
     - Make sure `curl` is installed in your sysytem.
 
 3. **Run the Application**:
    - Start the Flask development server:
-     ``` FLASK_APP=app flask run
+     ``` 
+     FLASK_APP=app flask run
      ```
 
 ### Testing the Application
