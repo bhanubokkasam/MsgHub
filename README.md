@@ -33,38 +33,38 @@ The message service implements a simple RESTful API with the following endpoints
 ### DevOps Setup
 
 #### Kubernetes
-- **Deployment Spec**: Manages the deployment of the message service with zero downtime, includes sidecars for logging (e.g., vector/fluentd), and defines network policies, service accounts, and IAM roles.
+- **Deployment Spec**: Manages the deployment of the message service with zero downtime, includes sidecars for logging (fluentd), and defines network policies, service accounts, and IAM roles.
 - **Monitoring**: Uses Prometheus and Alertmanager for monitoring the service.
-- **Logging**: Configured to send logs to a central log management tool.
-- **StatefulSet for Database**: Deploys a MySQL/PostgreSQL database using StatefulSet, along with persistent storage.
+- **StatefulSet for Database**: Deploys a MySQL database using StatefulSet, along with persistent storage.
 
 #### Terraform
-- Terraform scripts in `eks-with-terraform` are used to set up the Kubernetes cluster on AWS, including necessary network configurations and security group rules.
+- Terraform scripts in `eks-with-terraform` are used to set up the Elastic Kubernetes cluster on AWS.ules.
 
 #### CI/CD
-- **Jenkins**: The Jenkinsfile in the `jenkins` folder defines a pipeline for building and deploying the Docker image of the message service.
-- **GitLab**: The `gitlab` folder may contain CI/CD configurations for GitLab, facilitating integration and deployment workflows.
+- **Jenkins**: The Jenkinsfile in the `jenkins` folder defines a pipeline for building the Docker image of the message service.
+- **GitLab**: The `gitlab` folder contain CI configurations for GitLab, pipeline for testing and building the Docker image of the message service.
 
 ### Setup and Running
 
 1. **Kubernetes Cluster Setup**:
-   - Navigate <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/eks-with-terraform#readme">eks-with-terraform</a> and follow the instructions to provision the EKS cluster using Terraform.
+   - Navigate to <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/eks-with-terraform#readme">eks-with-terraform</a> and follow the instructions to provision the EKS cluster using Terraform.
    - Ensure your AWS credentials are configured and the necessary permissions are set. 
 
 2. **Deploying the Message Service**:
-   - Go to the `kubernetes` folder.
+   - Go to the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/kubernetes#readme">kubernetes</a> folder.
    - Apply the Kubernetes manifests using `kubectl apply -f <manifest_file>.yaml`.
    - This includes deploying the message service, database, monitoring, and logging configurations.
 
 3. **CI/CD Pipeline Setup**:
-   - For Jenkins, navigate to the `jenkins` folder and use the provided Jenkinsfile to set up the pipeline in your Jenkins instance.
+   - For Jenkins, navigate to the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/jenkins#readme">jenkins</a> folder and use the provided Jenkinsfile to set up the pipeline in your Jenkins instance.
    - For GitLab, configure the CI/CD pipeline as per the scripts and instructions in the `gitlab` folder.
 
 4. **Application Setup**:
    - Go to `message-service` folder and follow the instructions to run the application in local.
    - Make sure python is installed in laptop.
 
-### Architectural Diagram
+### Architectural Diagram of AWS for deploying this application
+
 
 
 
