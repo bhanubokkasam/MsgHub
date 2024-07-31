@@ -64,7 +64,7 @@ The message service implements a simple RESTful API with the following endpoints
    - Make sure python is installed in laptop.
 
 ### Architectural Diagram of AWS for deploying this application
-(assets/Architecture.gif)
+![AWS](assets/Architecture.gif)
 
 
 
