@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: message-service
-        image: bhanubokkasam/message-service:latest
+        image: bhanubokkasam/message-service:<specific-version> # Use a specific version instead of latest
         ports:
         - containerPort: 5000
         resources:
@@ -39,6 +39,13 @@ spec:
         volumeMounts:
         - name: logs
           mountPath: /var/log/containers
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
       - name: fluent-bit
         image: fluent/fluent-bit:1.8
         volumeMounts:
@@ -48,8 +55,13 @@ spec:
           mountPath: /var/log/containers
         ports:
         - containerPort: 2020
-        - containerPort: 2021
-        - containerPort: 2022
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
       volumes:
       - name: fluent-bit-config
         configMap:
