@@ -1,4 +1,4 @@
-## Kubernetes Folder Documentation
+## Kubernetes
 
 ### Overview
 The `kubernetes` folder contains Kubernetes manifest files necessary for deploying and managing the message service application in a Kubernetes cluster. These manifests include configurations for deployments, services, autoscaling, network policies, monitoring, logging, and persistent storage.

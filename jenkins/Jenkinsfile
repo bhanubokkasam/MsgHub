@@ -5,13 +5,13 @@ pipeline {
         DOCKER_REGISTRY = 'docker.io'
         IMAGE_NAME = 'bhanubokkasam/message-service-py'
         TAG = 'latest'
-        DOCKER_CREDENTIALS_ID = 'credentials-id' // Set this to your Jenkins credentials ID for Docker
+        DOCKER_CREDENTIALS_ID = 'credentials-id' 
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/bhanubokkasam/MsgHub.git' // Replace with your Git repository
+                git 'https://github.com/bhanubokkasam/MsgHub.git' 
             }
         }
 
