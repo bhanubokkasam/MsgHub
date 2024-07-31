@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: message-service
+  template:
+    metadata:
+      labels:
+        app: message-service
+    spec:
+      containers:
+      - name: message-service
+        image: bhanubokkasam/message-service:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        volumeMounts:
+        - name: logs
+          mountPath: /var/log/containers
+      - name: fluent-bit
+        image: fluent/fluent-bit:1.8
+        volumeMounts:
+        - name: fluent-bit-config
+          mountPath: /fluent-bit/etc
+        - name: logs
+          mountPath: /var/log/containers
+        ports:
+        - containerPort: 2020
+        - containerPort: 2021
+        - containerPort: 2022
+      volumes:
+      - name: fluent-bit-config
+        configMap:
+          name: fluent-bit-config
+      - name: logs
+        emptyDir: {}
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/instance-type
+                operator: In
+                values:
+                - t3.micro

@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_REGISTRY = 'docker.io'
+        IMAGE_NAME = 'bhanubokkasam/message-service-py'
+        TAG = 'latest'
+        DOCKER_CREDENTIALS_ID = 'credentials-id' // Set this to your Jenkins credentials ID for Docker
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/bhanubokkasam/MsgHub.git' // Replace with your Git repository
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Build Docker image
+                    docker.build("${IMAGE_NAME}:${TAG}")
+                }
+            }
+        }
+
+        stage('Push') {
+            steps {
+                script {
+                    docker.withRegistry("https://${DOCKER_REGISTRY}", DOCKER_CREDENTIALS_ID) {
+                        docker.image("${IMAGE_NAME}:${TAG}").push()
+                    }
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                script {
+                    // Clean up local Docker images
+                    sh "docker rmi ${IMAGE_NAME}:${TAG}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs() // Clean workspace after build
+        }
+    }
+}
