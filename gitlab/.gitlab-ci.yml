@@ -1,0 +1,23 @@
+variables:
+  IMAGE_NAME: "bhanubokkasam/message-service"
+
+stages:
+  - test
+  - build
+
+test_job:
+  stage: test
+  script:
+    - pytest
+  tags:
+  - runner
+
+build_job:
+  stage: build
+  script:
+    - export DATE_TAG=`date '+%Y%m%d%H%M%S'
+    - docker build -t $IMAGE_NAME .
+    - for t in latest $DATE_TAG; do docker tag "$IMAGE_NAME:latest" "$IMAGE_NAME:${t}"; done
+    - for t in latest $DATE_TAG; do docker push "$IMAGE_NAME:latest" "$IMAGE_NAME:${t}"; done
+  tags:
+  - runner
