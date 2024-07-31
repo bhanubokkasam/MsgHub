@@ -60,7 +60,7 @@ The message service implements a simple RESTful API with the following endpoints
    - For GitLab, configure the CI/CD pipeline as per the scripts and instructions in the `gitlab` folder.
 
 4. **Application Setup**:
-   - Go to `message-service` folder and follow the instructions to run the application in local.
+   - Go to <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/message-service#readme">message-service</a> folder and follow the instructions to run the application in local.
    - Make sure python is installed in laptop.
 
 ### Architectural Diagram of AWS for deploying this application
