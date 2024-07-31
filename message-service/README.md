@@ -60,7 +60,8 @@ To run the message service locally:
 
 2. **Start MySql DB**:
    - Run below command to bring MySql DB.
-     ```docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=messages -e MYSQL_USER=user -e MYSQL_PASSWORD=password -p 3306:3306 -d mysql:5.7
+     ```
+     docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=messages -e MYSQL_USER=user -e MYSQL_PASSWORD=password -p 3306:3306 -d mysql:5.7
      `
 3. **Validation and Testing**:
     - Run below commands for creating and searching messages
