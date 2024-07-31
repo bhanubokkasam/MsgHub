@@ -57,7 +57,7 @@ The message service implements a simple RESTful API with the following endpoints
 
 3. **CI/CD Pipeline Setup**:
    - For Jenkins, navigate to the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/jenkins#readme">jenkins</a> folder and use the provided Jenkinsfile to set up the pipeline in your Jenkins instance.
-   - For GitLab, configure the CI/CD pipeline as per the scripts and instructions in the `gitlab` folder.
+   - As I am familiar with GitLab, to configure the CI/CD pipeline as per the scripts and instructions in the <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/gitlab#readme">gitlab</a> folder.
 
 4. **Application Setup**:
    - Go to <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/message-service#readme">message-service</a> folder and follow the instructions to run the application in local.
