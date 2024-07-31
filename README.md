@@ -47,7 +47,7 @@ The message service implements a simple RESTful API with the following endpoints
 ### Setup and Running
 
 1. **Kubernetes Cluster Setup**:
-   - Navigate to <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/eks-with-terraform#readme">eks-with-terraform</a> and follow the instructions to provision the EKS cluster using Terraform.
+   - Navigate to <a href= "https://github.com/bhanubokkasam/MsgHub/tree/main/eks-with-terraform#eks-with-terraform">eks-with-terraform</a> and follow the instructions to provision the EKS cluster using Terraform.
    - Ensure your AWS credentials are configured and the necessary permissions are set. 
 
 2. **Deploying the Message Service**:
