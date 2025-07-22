@@ -68,4 +68,3 @@ The message service implements a simple RESTful API with the following endpoints
 
 
 
-
